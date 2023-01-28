@@ -9,24 +9,27 @@ using System.Threading.Tasks;
 
 namespace Crypto_task.ViewModels
 {
-    public class CurrenciesViewModel
+    public class CurrencyDetailsViewModel
     {
         public ObservableCollection<CurrencyModel> Source { get; } = new ObservableCollection<CurrencyModel>();
 
-        public CurrenciesViewModel()
+        public CurrencyDetailsViewModel()
         {
+            
         }
 
-        public async Task LoadDataAsync()
+        public void LoadData(object parameter)
         {
+            object[] objects= parameter as object[];
             Source.Clear();
-
-            var responce = await HttpService.GetCurrencies(App.httpClient);
-
-            foreach (var item in responce.Data)
+            foreach (var item in (ObservableCollection<CurrencyModel>)objects[1]) 
             {
-                Source.Add(item);
+                if (item.Id == objects[0].ToString())
+                {
+                    Source.Add(item);
+                }
             }
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Crypto_task.Helpers;
+using Crypto_task.Services;
 using Crypto_task.Views;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,7 @@ namespace Crypto_task.ViewModels
         {
             if (args.IsSettingsInvoked)
             {
-                //NavigationService.Navigate(typeof(SettingsPage), null, args.RecommendedNavigationTransitionInfo);
-                frame.Navigate(typeof(SettingsPage), null, args.RecommendedNavigationTransitionInfo);
+                NavigationService.Navigate(frame, typeof(SettingsPage), null, args.RecommendedNavigationTransitionInfo);
             }
             else
             {
@@ -42,8 +42,7 @@ namespace Crypto_task.ViewModels
 
                 if (pageType != null)
                 {
-                    //NavigationService.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
-                    frame.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
+                    NavigationService.Navigate(frame, pageType, null, args.RecommendedNavigationTransitionInfo);
                 }
             }
         }

@@ -5,10 +5,52 @@
     xmlns:local="using:Crypto_task.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Crypto_task.Core.Models"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Currencies"></TextBlock>
+        <TextBlock Text="Data Taken From CoinCap"></TextBlock>
+        <controls:DataGrid
+            x:Name="dataGrid"
+            ItemsSource="{x:Bind ViewModel.Source,Mode=OneWay}"
+            AutoGenerateColumns="False">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn 
+                    Header="Rank" 
+                    Width="SizeToHeader"
+                    Binding="{Binding Rank}" 
+                    FontSize="20"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    Header="Currency" 
+                    Width="SizeToCells"
+                    Binding="{Binding Name}" 
+                    FontSize="20"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn 
+                    Header="Symbol"
+                    Width="SizeToCells"
+                    Binding="{Binding Symbol}"
+                    IsReadOnly="True"/>
+                <controls:DataGridTemplateColumn
+                    Header="Details">
+                    <controls:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Id}" Click="Button_Click"></Button>
+                        </DataTemplate>
+                    </controls:DataGridTemplateColumn.CellTemplate>
+                </controls:DataGridTemplateColumn>
+                <controls:DataGridTextColumn
+                    Header="Market Capitalization" 
+                    Width="SizeToCells"
+                    Binding="{Binding MarketCapUsd}" 
+                    FontSize="20"
+                    IsReadOnly="True"/>
+            </controls:DataGrid.Columns>
+
+        </controls:DataGrid>
     </Grid>
 </Page>

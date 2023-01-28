@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="Crypto_task.Views.CurrencyDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Crypto_task.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Crypto_task.Core.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView ItemsSource="{x:Bind ViewModel.Source}"
+            HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:CurrencyModel">
+                    <StackPanel Orientation="Vertical" Margin="6">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Name" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Rank" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Rank}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Symbol" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Symbol}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Supply" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Supply}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="MaxSupply" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind MaxSupply}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="MarketCapUsd" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind MarketCapUsd}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="VolumeUsd24Hr" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind VolumeUsd24Hr}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="PriceUsd" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind PriceUsd}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="ChangePercent24Hr" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind ChangePercent24Hr}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Vwap24Hr" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Vwap24Hr}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Explorer" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Explorer}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <TextBlock Text="Id" Margin="0,0,12,0"/>
+                            <TextBlock Text="{x:Bind Id}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                            <Button Content="Markets" Name="{x:Bind Id}" Margin="0,0,12,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

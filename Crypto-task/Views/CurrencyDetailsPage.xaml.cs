@@ -1,5 +1,4 @@
-﻿using Crypto_task.Services;
-using Crypto_task.ViewModels;
+﻿using Crypto_task.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,26 +21,19 @@ namespace Crypto_task.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CurrenciesPage : Page
+    public sealed partial class CurrencyDetailsPage : Page
     {
-        public CurrenciesViewModel ViewModel { get; } = new CurrenciesViewModel();
-        public CurrenciesPage()
+        public CurrencyDetailsViewModel ViewModel { get; } = new CurrencyDetailsViewModel();
+        public CurrencyDetailsPage()
         {
             this.InitializeComponent();
-            
         }
-       
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            await ViewModel.LoadDataAsync();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            NavigationService.Navigate(Frame, typeof(CurrencyDetailsPage), new object[] { button.Content, ViewModel.Source });
+            ViewModel.LoadData(e.Parameter);
         }
     }
 }

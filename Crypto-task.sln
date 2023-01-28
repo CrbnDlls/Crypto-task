@@ -5,18 +5,25 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto-task", "Crypto-task\Crypto-task.csproj", "{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto-task.Core", "Crypto-task.Core\Crypto-task.Core.csproj", "{79DC88F5-6D07-44F6-8569-7BE6F729B462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|ARM.ActiveCfg = Debug|ARM
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|ARM.Build.0 = Debug|ARM
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -29,6 +36,9 @@ Global
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|x86.ActiveCfg = Debug|x86
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|x86.Build.0 = Debug|x86
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Debug|x86.Deploy.0 = Debug|x86
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|ARM.ActiveCfg = Release|ARM
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|ARM.Build.0 = Release|ARM
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|ARM.Deploy.0 = Release|ARM
@@ -41,6 +51,26 @@ Global
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|x86.ActiveCfg = Release|x86
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|x86.Build.0 = Release|x86
 		{B8EEA22B-C2D6-4281-B19F-743CC88EF5BB}.Release|x86.Deploy.0 = Release|x86
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|ARM.ActiveCfg = Debug|ARM
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|ARM.Build.0 = Debug|ARM
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|ARM64.Build.0 = Debug|ARM64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|x64.ActiveCfg = Debug|x64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|x64.Build.0 = Debug|x64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|x86.ActiveCfg = Debug|x86
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Debug|x86.Build.0 = Debug|x86
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|ARM.ActiveCfg = Release|ARM
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|ARM.Build.0 = Release|ARM
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|ARM64.ActiveCfg = Release|ARM64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|ARM64.Build.0 = Release|ARM64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|x64.ActiveCfg = Release|x64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|x64.Build.0 = Release|x64
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|x86.ActiveCfg = Release|x86
+		{79DC88F5-6D07-44F6-8569-7BE6F729B462}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
