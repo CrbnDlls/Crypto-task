@@ -1,0 +1,36 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Crypto_task"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:helpers="using:Crypto_task.Helpers"
+    xmlns:views="using:Crypto_task.Views"
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    x:Class="Crypto_task.Views.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <winui:NavigationView x:Name="navView" VerticalAlignment="Top" PaneDisplayMode="Top">
+        <winui:NavigationView.MenuItems>
+            <winui:NavigationViewItem Content="Currencies" helpers:NavHelper.NavigateTo="views:CurrenciesPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem Content="Quotes" helpers:NavHelper.NavigateTo="views:QuoteChartsPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem Content="Exchange Rates" helpers:NavHelper.NavigateTo="views:ExchangeRatesPage"></winui:NavigationViewItem>
+        </winui:NavigationView.MenuItems>
+        <i:Interaction.Behaviors>
+            <ic:EventTriggerBehavior EventName="ItemInvoked">
+                <ic:InvokeCommandAction Command="{x:Bind ViewModel.ItemInvokedCommand}" />
+            </ic:EventTriggerBehavior>
+        </i:Interaction.Behaviors>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="206*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="shellFrame" Grid.ColumnSpan="2" />
+        </Grid>
+    </winui:NavigationView>
+
+</Page>

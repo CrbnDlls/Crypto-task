@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crypto_task.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
