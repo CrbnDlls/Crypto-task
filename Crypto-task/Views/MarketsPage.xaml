@@ -1,20 +1,18 @@
 ﻿<Page
-    x:Class="Crypto_task.Views.CurrenciesPage"
+    x:Class="Crypto_task.Views.MarketsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Crypto_task.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="using:Crypto_task.Core.Models"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel>
-                <TextBlock Text="Data Taken From CoinCap"></TextBlock>
+                <TextBlock Text="Currency"></TextBlock>
             </StackPanel>
             <StackPanel>
                 <controls:DataGrid
@@ -23,35 +21,44 @@
             AutoGenerateColumns="False">
                     <controls:DataGrid.Columns>
                         <controls:DataGridTextColumn 
-                    Header="Rank" 
+                    Header="Market" 
                     Width="SizeToHeader"
-                    Binding="{Binding Rank}" 
-                    FontSize="20"
+                    Binding="{Binding ExchangeId}" 
                     IsReadOnly="True"/>
                         <controls:DataGridTextColumn
-                    Header="Currency" 
+                    Header="BaseId" 
                     Width="SizeToCells"
-                    Binding="{Binding Name}" 
-                    FontSize="20"
+                    Binding="{Binding BaseId}" 
                     IsReadOnly="True"/>
                         <controls:DataGridTextColumn 
-                    Header="Symbol"
+                    Header="QuoteId"
                     Width="SizeToCells"
-                    Binding="{Binding Symbol}"
+                    Binding="{Binding QuoteId}"
                     IsReadOnly="True"/>
-                        <controls:DataGridTemplateColumn
-                    Header="Details">
-                            <controls:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding Id}" Click="Button_Click"></Button>
-                                </DataTemplate>
-                            </controls:DataGridTemplateColumn.CellTemplate>
-                        </controls:DataGridTemplateColumn>
-                        <controls:DataGridTextColumn
-                    Header="Market Capitalization Usd" 
+                        <controls:DataGridTextColumn 
+                    Header="BaseSymbol"
                     Width="SizeToCells"
-                    Binding="{Binding MarketCapUsd}" 
-                    FontSize="20"
+                    Binding="{Binding BaseSymbol}"
+                    IsReadOnly="True"/>
+                        <controls:DataGridTextColumn 
+                    Header="QuoteSymbol"
+                    Width="SizeToCells"
+                    Binding="{Binding QuoteSymbol}"
+                    IsReadOnly="True"/>
+                        <controls:DataGridTextColumn 
+                    Header="VolumeUsd24Hr"
+                    Width="SizeToCells"
+                    Binding="{Binding VolumeUsd24Hr}"
+                    IsReadOnly="True"/>
+                        <controls:DataGridTextColumn 
+                    Header="PriceUsd"
+                    Width="SizeToCells"
+                    Binding="{Binding PriceUsd}"
+                    IsReadOnly="True"/>
+                        <controls:DataGridTextColumn
+                    Header="VolumePercent" 
+                    Width="SizeToCells"
+                    Binding="{Binding VolumePercent}" 
                     IsReadOnly="True"/>
                     </controls:DataGrid.Columns>
                 </controls:DataGrid>

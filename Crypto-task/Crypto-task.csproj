@@ -125,6 +125,7 @@
     <Compile Include="ViewModels\CurrencyDetailsViewModel.cs" />
     <Compile Include="ViewModels\ExchangeRatesViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MarketsViewModel.cs" />
     <Compile Include="ViewModels\QuoteChartsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\CurrenciesPage.xaml.cs">
@@ -140,6 +141,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MarketsPage.xaml.cs">
+      <DependentUpon>MarketsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuoteChartsPage.xaml.cs">
       <DependentUpon>QuoteChartsPage.xaml</DependentUpon>
     </Compile>
@@ -182,6 +186,10 @@
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MarketsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\QuoteChartsPage.xaml">
       <SubType>Designer</SubType>

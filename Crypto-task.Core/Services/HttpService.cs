@@ -11,6 +11,12 @@ namespace Crypto_task.Core.Services
 {
     public static class HttpService
     {
+        public static async Task<CoinCapResponce<MarketModel>> GetMarkets(HttpClient client, string id, int limit = 10, int offset = 0)
+        {
+            var markets = await GetData<CoinCapResponce<MarketModel>>(client, $@"https://api.coincap.io/v2/assets/{id}/markets?limit={((limit <= 2000 && limit > 0) ? limit : 10)}&offset={offset}");
+
+            return markets;
+        }
         public static async Task<CoinCapResponce<CurrencyModel>> GetCurrencies(HttpClient client, int limit = 10, string search = "", string ids = "", int offset = 0)
         {
             var currencies = await GetData<CoinCapResponce<CurrencyModel>>(client, $@"https://api.coincap.io/v2/assets?limit={((limit <= 2000 && limit > 0) ? limit : 10)}&search={search}&ids={ids}&offset={offset}");

@@ -10,78 +10,85 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView ItemsSource="{x:Bind ViewModel.Source}"
-            HorizontalAlignment="Left" VerticalAlignment="Center">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:CurrencyModel">
-                    <StackPanel Orientation="Vertical" Margin="6">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Name" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Rank" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Rank}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Symbol" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Symbol}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Supply" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Supply}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="MaxSupply" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind MaxSupply}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="MarketCapUsd" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind MarketCapUsd}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="VolumeUsd24Hr" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind VolumeUsd24Hr}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="PriceUsd" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind PriceUsd}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="ChangePercent24Hr" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind ChangePercent24Hr}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Vwap24Hr" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Vwap24Hr}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Explorer" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Explorer}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <TextBlock Text="Id" Margin="0,0,12,0"/>
-                            <TextBlock Text="{x:Bind Id}" FontWeight="Bold"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                            <Button Content="Markets" Name="{x:Bind Id}" Margin="0,0,12,0"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{x:Bind ViewModel.Source[0].Id}"/>
+                <Button Content="Markets" Name="{x:Bind ViewModel.Source[0].Id}" Margin="0,0,12,0" Click="Button_Click"/>
+            </StackPanel>
+            <StackPanel>
+                <ListView ItemsSource="{x:Bind ViewModel.Source}"
+                    HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:CurrencyModel">
+                            <StackPanel Orientation="Vertical" Margin="6">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Name" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Rank" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Rank}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Symbol" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Symbol}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Supply" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Supply}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="MaxSupply" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind MaxSupply}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="MarketCapUsd" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind MarketCapUsd}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="VolumeUsd24Hr" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind VolumeUsd24Hr}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="PriceUsd" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind PriceUsd}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="ChangePercent24Hr" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind ChangePercent24Hr}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Vwap24Hr" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Vwap24Hr}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Explorer" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Explorer}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                    <TextBlock Text="Id" Margin="0,0,12,0"/>
+                                    <TextBlock Text="{x:Bind Id}" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
