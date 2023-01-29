@@ -13,8 +13,11 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <StackPanel>
-                <TextBlock Text="Data Taken From CoinCap"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="SearchTextBox" PlaceholderText="Search Currency by Symbol or Id" Width="300" Margin="3,3,10,3" TextChanged="TextBox_TextChanged"></TextBox>
+                <TextBlock Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+                <TextBox x:Name="LimitTextBox" PlaceholderText="10" Margin="3,3,10,3" Width="50" TextChanged="TextBox_TextChanged"></TextBox>
+                <TextBlock Text="Data Taken From CoinCap" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
             <StackPanel>
                 <controls:DataGrid

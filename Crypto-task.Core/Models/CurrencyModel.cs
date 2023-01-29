@@ -8,6 +8,7 @@ namespace Crypto_task.Core.Models
 {
     public class CurrencyModel
     {
+        CurrencyModel() { }
         public string Id { get; set; }
         public int Rank { get; set; }
         public string Symbol { get; set; }

@@ -8,6 +8,7 @@ namespace Crypto_task.Core.Models
 {
     public class MarketModel
     {
+        MarketModel() { }
         public string ExchangeId { get; set; }
         public string BaseId { get; set; }
         public string QuoteId { get; set; }
