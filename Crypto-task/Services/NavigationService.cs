@@ -11,6 +11,7 @@ namespace Crypto_task.Services
 {
     public static class NavigationService
     {
+
         public static void Navigate(Frame currentFrame, Type pageType, object parameter = null, NavigationTransitionInfo infoOverride = null)
         {
             //if (pageType == null || !pageType.IsSubclassOf(typeof(Page)))
@@ -23,6 +24,17 @@ namespace Crypto_task.Services
             {
                 currentFrame.Navigate(pageType, parameter, infoOverride);
             } 
+        }
+
+        public static bool GoBack(Frame frame)
+        {
+            if (frame.CanGoBack)
+            {
+                frame.GoBack();
+                return true;
+            }
+
+            return false;
         }
     }
 }

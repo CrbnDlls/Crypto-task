@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Crypto_task.Core.Models;
 using Crypto_task.Core.Services;
+using Crypto_task.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,7 @@ namespace Crypto_task.ViewModels
     public class CurrencyDetailsViewModel
     {
         public ObservableCollection<CurrencyModel> Source { get; } = new ObservableCollection<CurrencyModel>();
-        
+
         public CurrencyDetailsViewModel()
         {
             
@@ -30,7 +31,6 @@ namespace Crypto_task.ViewModels
                     Source.Add(item);
                 }
             }
-
         }
     }
 }

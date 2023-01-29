@@ -13,7 +13,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <winui:NavigationView x:Name="navView" VerticalAlignment="Top" PaneDisplayMode="Top">
+    <winui:NavigationView x:Name="navView" 
+                          VerticalAlignment="Top" 
+                          PaneDisplayMode="Top"
+                          IsBackButtonVisible="Visible"
+                          IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}">
         <winui:NavigationView.MenuItems>
             <winui:NavigationViewItem Content="Currencies" helpers:NavHelper.NavigateTo="views:CurrenciesPage"></winui:NavigationViewItem>
             <winui:NavigationViewItem Content="Quotes" helpers:NavHelper.NavigateTo="views:QuoteChartsPage"></winui:NavigationViewItem>

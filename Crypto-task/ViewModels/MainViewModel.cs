@@ -19,12 +19,19 @@ namespace Crypto_task.ViewModels
         private Frame frame;
         private WinUI.NavigationView navigationView;
         private ICommand itemInvocedCommand;
-
+        private bool isBackEnabled;
+        public bool IsBackEnabled
+        {
+            get { return isBackEnabled; }
+            set { SetProperty(ref isBackEnabled, value); }
+        }
         public void Initialize(Frame frame, WinUI.NavigationView navigationView)
         {
             this.frame = frame;
             this.navigationView = navigationView;
             frame.Navigate(typeof(CurrenciesPage));
+            navigationView.BackRequested += NavigationView_BackRequested;
+            frame.Navigated += Frame_Navigated;
         }
 
         public ICommand ItemInvokedCommand => itemInvocedCommand ?? (itemInvocedCommand = new RelayCommand<WinUI.NavigationViewItemInvokedEventArgs>(OnItemInvoked));
@@ -45,6 +52,16 @@ namespace Crypto_task.ViewModels
                     NavigationService.Navigate(frame, pageType, null, args.RecommendedNavigationTransitionInfo);
                 }
             }
+        }
+
+        private void NavigationView_BackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)
+        {
+            NavigationService.GoBack(frame);
+        }
+
+        private void Frame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+        {
+            IsBackEnabled = frame.CanGoBack;
         }
     }
 }
