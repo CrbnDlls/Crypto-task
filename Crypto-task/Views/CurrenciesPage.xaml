@@ -12,53 +12,54 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="SearchTextBox" PlaceholderText="Search Currency by Symbol or Id" Width="300" Margin="3,3,10,3" TextChanged="TextBox_TextChanged"></TextBox>
-                <TextBlock Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
-                <TextBox x:Name="LimitTextBox" PlaceholderText="10" Margin="3,3,10,3" Width="50" TextChanged="TextBox_TextChanged"></TextBox>
-                <TextBlock Text="Data Taken From CoinCap" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
-            </StackPanel>
-            <StackPanel>
-                <controls:DataGrid
+       <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBox x:Name="SearchTextBox" PlaceholderText="Search Currency by Symbol or Id" Width="300" Margin="3,3,10,3" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBlock Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+            <TextBox x:Name="LimitTextBox" PlaceholderText="10" Margin="3,3,10,3" Width="50" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBlock Text="Data Taken From CoinCap" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+        </StackPanel>
+        <controls:DataGrid
             x:Name="dataGrid"
             ItemsSource="{x:Bind ViewModel.Source,Mode=OneWay}"
-            AutoGenerateColumns="False">
-                    <controls:DataGrid.Columns>
-                        <controls:DataGridTextColumn 
+            AutoGenerateColumns="False"
+            Grid.Row="1">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn 
                     Header="Rank" 
                     Width="SizeToHeader"
                     Binding="{Binding Rank}" 
                     FontSize="20"
                     IsReadOnly="True"/>
-                        <controls:DataGridTextColumn
+                <controls:DataGridTextColumn
                     Header="Currency" 
                     Width="SizeToCells"
                     Binding="{Binding Name}" 
                     FontSize="20"
                     IsReadOnly="True"/>
-                        <controls:DataGridTextColumn 
+                <controls:DataGridTextColumn 
                     Header="Symbol"
                     Width="SizeToCells"
                     Binding="{Binding Symbol}"
                     IsReadOnly="True"/>
-                        <controls:DataGridTemplateColumn
+                <controls:DataGridTemplateColumn
                     Header="Details">
-                            <controls:DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="{Binding Id}" Click="Button_Click"></Button>
-                                </DataTemplate>
-                            </controls:DataGridTemplateColumn.CellTemplate>
-                        </controls:DataGridTemplateColumn>
-                        <controls:DataGridTextColumn
+                    <controls:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Id}" Click="Button_Click"></Button>
+                        </DataTemplate>
+                    </controls:DataGridTemplateColumn.CellTemplate>
+                </controls:DataGridTemplateColumn>
+                <controls:DataGridTextColumn
                     Header="Market Capitalization Usd" 
                     Width="SizeToCells"
                     Binding="{Binding MarketCapUsd}" 
                     FontSize="20"
                     IsReadOnly="True"/>
-                    </controls:DataGrid.Columns>
-                </controls:DataGrid>
-            </StackPanel>
-        </StackPanel>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
     </Grid>
 </Page>

@@ -8,87 +8,231 @@
     xmlns:models="using:Crypto_task.Core.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style x:Key="NamesStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,0,12,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ValuesStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ValueExplorerStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
+    </Page.Resources>
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{x:Bind ViewModel.Source[0].Id}"/>
-                <Button Content="Markets" Name="{x:Bind ViewModel.Source[0].Id}" Margin="0,0,12,0" Click="Button_Click"/>
-            </StackPanel>
-            <StackPanel>
-                <ListView ItemsSource="{x:Bind ViewModel.Source}"
-                    HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="models:CurrencyModel">
-                            <StackPanel Orientation="Vertical" Margin="6">
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Name" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Name}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Rank" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Rank}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Symbol" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Symbol}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Supply" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Supply}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="MaxSupply" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind MaxSupply}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="MarketCapUsd" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind MarketCapUsd}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="VolumeUsd24Hr" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind VolumeUsd24Hr}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="PriceUsd" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind PriceUsd}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="ChangePercent24Hr" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind ChangePercent24Hr}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Vwap24Hr" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Vwap24Hr}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Explorer" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Explorer}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                    <TextBlock Text="Id" Margin="0,0,12,0"/>
-                                    <TextBlock Text="{x:Bind Id}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <SymbolIcon Symbol="Target" Margin="0,0,12,0"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="DetailsListView" ItemsSource="{x:Bind ViewModel.Source}" Grid.Row="1" Margin="0,5,0,5">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:CurrencyModel">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Name" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Name}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Rank" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Rank}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Symbol" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Symbol}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Supply" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Supply}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="MaxSupply" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind MaxSupply}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="MarketCapUsd" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind MarketCapUsd}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="VolumeUsd24Hr" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind VolumeUsd24Hr}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="PriceUsd" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind PriceUsd}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="ChangePercent24Hr" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind ChangePercent24Hr}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Vwap24Hr" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Vwap24Hr}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="Explorer" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBox  Grid.Column="1" Grid.Row="1" Text="{x:Bind Explorer}" Margin="12,0,0,6"
+                                Style="{ThemeResource BodyTextBlockStyle}" IsReadOnly="True"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
+                                Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
+                            <TextBlock Grid.Column="1" Text="{x:Bind Id}" Margin="12,6,0,0"
+                                Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <Button Grid.Column="1" Grid.Row="1" Content="Markets" Name="{x:Bind Id}" 
+                                Margin="12,0,0,6" Click="Button_Click" Width="200"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

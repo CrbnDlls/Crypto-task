@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,6 +25,8 @@ namespace Crypto_task.Views
     public sealed partial class MarketsPage : Page
     {
         public MarketsViewModel ViewModel { get; } = new MarketsViewModel();
+        private CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+        private object Id;
         public MarketsPage()
         {
             this.InitializeComponent();
@@ -33,7 +36,29 @@ namespace Crypto_task.Views
         {
             base.OnNavigatedTo(e);
 
-            await ViewModel.LoadDataAsync(e.Parameter);
+            Id = e.Parameter;
+            await ViewModel.LoadDataAsync(Id, null, null);
+        }
+
+        private void LimitTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cancelTokenSource != null)
+            {
+                cancelTokenSource.Cancel();
+            }
+            cancelTokenSource = new CancellationTokenSource();
+
+            PerformSearch(cancelTokenSource.Token);
+        }
+
+        private void PerformSearch(CancellationToken token)
+        {
+            if (!int.TryParse(LimitTextBox.Text, out int limitNum))
+            {
+                limitNum = 10;
+            }
+
+            ViewModel.LoadDataAsync(Id, token, limitNum);
         }
     }
 }

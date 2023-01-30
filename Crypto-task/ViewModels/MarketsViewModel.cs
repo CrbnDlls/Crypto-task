@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Crypto_task.ViewModels
@@ -17,15 +18,21 @@ namespace Crypto_task.ViewModels
         {
         }
 
-        public async Task LoadDataAsync(object currency)
+        public async Task LoadDataAsync(object currency, CancellationToken? token, int? limit)
         {
-            Source.Clear();
-
-            var responce = await HttpService.GetMarkets(App.httpClient, currency.ToString());
-
-            foreach (var item in responce.Data)
+            try 
             {
-                Source.Add(item);
+                var responce = await HttpService.GetMarkets(App.httpClient, token, currency.ToString(), limit.HasValue ? limit.Value : 10);
+
+                Source.Clear();
+                foreach (var item in responce.Data)
+                {
+                    Source.Add(item);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                
             }
         }
     }

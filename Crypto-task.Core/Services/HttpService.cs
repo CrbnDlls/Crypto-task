@@ -12,9 +12,9 @@ namespace Crypto_task.Core.Services
 {
     public static class HttpService
     {
-        public static async Task<CoinCapResponce<MarketModel>> GetMarkets(HttpClient client, string id, int limit = 10, int offset = 0)
+        public static async Task<CoinCapResponce<MarketModel>> GetMarkets(HttpClient client, CancellationToken? token, string id, int limit = 10, int offset = 0)
         {
-            var markets = await GetData<CoinCapResponce<MarketModel>>(client, null, $@"https://api.coincap.io/v2/assets/{id}/markets?limit={((limit <= 2000 && limit > 0) ? limit : 10)}&offset={offset}");
+            var markets = await GetData<CoinCapResponce<MarketModel>>(client, token, $@"https://api.coincap.io/v2/assets/{id}/markets?limit={((limit <= 2000 && limit > 0) ? limit : 10)}&offset={offset}");
 
             return markets;
         }
@@ -28,7 +28,7 @@ namespace Crypto_task.Core.Services
         {
             if (token.HasValue)
             {
-                await Task.Delay(1000);
+                await Task.Delay(500);
                 if (token.Value.IsCancellationRequested)
                 {
                     token.Value.ThrowIfCancellationRequested();
