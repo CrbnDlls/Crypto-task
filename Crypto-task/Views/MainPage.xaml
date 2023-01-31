@@ -19,9 +19,9 @@
                           IsBackButtonVisible="Visible"
                           IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}">
         <winui:NavigationView.MenuItems>
-            <winui:NavigationViewItem Content="Currencies" helpers:NavHelper.NavigateTo="views:CurrenciesPage"></winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="Quotes" helpers:NavHelper.NavigateTo="views:QuoteChartsPage"></winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="Exchange Rates" helpers:NavHelper.NavigateTo="views:ExchangeRatesPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem x:Uid="Main_Currencies" Content="Currencies" helpers:NavHelper.NavigateTo="views:CurrenciesPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem Content="Quote Charts" helpers:NavHelper.NavigateTo="views:QuoteChartsPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem x:Uid="Main_ExchangeCalculator" Content="Currency Exchange" helpers:NavHelper.NavigateTo="views:ExchangeRatesPage"></winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <ic:EventTriggerBehavior EventName="ItemInvoked">

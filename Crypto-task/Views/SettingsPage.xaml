@@ -29,9 +29,14 @@
         <TextBlock Text="Language" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1"></TextBlock>
         <ComboBox
             Grid.Row="0" Grid.Column="1"
-            ItemsSource="{x:Bind ViewModel.Strings}"
+            VerticalAlignment="Center"
+            ItemsSource="{x:Bind ViewModel.Themes}"
             SelectedItem="{x:Bind ViewModel.ElementTheme, Converter={StaticResource ThemeValueConverter}, Mode=TwoWay}"/>
-        <ComboBox x:Name="LanguageSelector" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"></ComboBox>
-        
+        <ComboBox Grid.Column="1" Grid.Row="1"
+                  VerticalAlignment="Center" 
+                  ItemsSource="{x:Bind ViewModel.Languages}"
+                  DisplayMemberPath="Name" 
+                  SelectedValuePath="Locale" 
+                  SelectedItem="{x:Bind ViewModel.SelectedLanguage, Mode=TwoWay}"/>
     </Grid>
 </Page>

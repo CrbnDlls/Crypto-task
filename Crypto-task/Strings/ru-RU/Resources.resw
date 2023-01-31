@@ -118,93 +118,93 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Currencies_Currency.Header" xml:space="preserve">
-    <value>Currency</value>
+    <value>Валюта</value>
   </data>
   <data name="Currencies_data_source.Text" xml:space="preserve">
-    <value>Data Taken From CoinCap</value>
+    <value>Данные взяты с CoinCap</value>
   </data>
   <data name="Currencies_Details.Header" xml:space="preserve">
-    <value>Details</value>
+    <value>Детальная информация</value>
   </data>
   <data name="Currencies_market_cap_usd.Header" xml:space="preserve">
-    <value>Market Capitalization Usd</value>
+    <value>Рыночная капитализация Usd</value>
   </data>
   <data name="Currencies_Rank.Header" xml:space="preserve">
-    <value>Rank</value>
+    <value>Позиция</value>
   </data>
   <data name="Currencies_Search.PlaceholderText" xml:space="preserve">
-    <value>Search Currency by Symbol or Id</value>
+    <value>Поиск валюты по символу или Id</value>
   </data>
   <data name="Currencies_Symbol.Header" xml:space="preserve">
-    <value>Symbol</value>
+    <value>Символ</value>
   </data>
   <data name="CurrencyDetails_ChangePercent24Hr.Text" xml:space="preserve">
-    <value>Value change in the last 24 hours</value>
+    <value>Изменение стоимости за 24 часа</value>
   </data>
   <data name="CurrencyDetails_Explorer.Text" xml:space="preserve">
-    <value>Explorer</value>
+    <value>Адрес</value>
   </data>
   <data name="CurrencyDetails_MarketCapUsd.Text" xml:space="preserve">
-    <value>Market Capitalization Usd</value>
+    <value>Рыночная капитализация Usd</value>
   </data>
   <data name="CurrencyDetails_Markets.Content" xml:space="preserve">
-    <value>Markets</value>
+    <value>Рынки</value>
   </data>
   <data name="CurrencyDetails_MaxSupply.Text" xml:space="preserve">
-    <value>Total quantity of asset issued</value>
+    <value>Общее кол-во выпущенной валюты</value>
   </data>
   <data name="CurrencyDetails_Name.Text" xml:space="preserve">
-    <value>Name</value>
+    <value>Имя</value>
   </data>
   <data name="CurrencyDetails_PriceUsd.Text" xml:space="preserve">
-    <value>Volume-weighted price based on real-time market data, translated to USD</value>
+    <value>Взвешенная по объему цена основанная на текущих рыночных данных переведенная в USD</value>
   </data>
   <data name="CurrencyDetails_Rank.Text" xml:space="preserve">
-    <value>Rank</value>
+    <value>Позиция</value>
   </data>
   <data name="CurrencyDetails_Supply.Text" xml:space="preserve">
-    <value>Available supply for trading</value>
+    <value>Доступный к продаже объем</value>
   </data>
   <data name="CurrencyDetails_Symbol.Text" xml:space="preserve">
-    <value>Symbol</value>
+    <value>Символ</value>
   </data>
   <data name="CurrencyDetails_VolumeUsd24Hr.Text" xml:space="preserve">
-    <value>Quantity of trading volume represented in USD over the last 24 hours</value>
+    <value>Объем торгов, представленный в долларах США за последние 24 часа</value>
   </data>
   <data name="CurrencyDetails_Vwap24Hr.Text" xml:space="preserve">
-    <value>Volume Weighted Average Price in the last 24 hours</value>
+    <value>Средневзвешенная цена по объему за последние 24 часа</value>
   </data>
   <data name="Main_Currencies.Content" xml:space="preserve">
-    <value>Currencies</value>
+    <value>Валюты</value>
   </data>
   <data name="Main_ExchangeCalculator.Content" xml:space="preserve">
-    <value>Currency Exchange</value>
+    <value>Обмен валют</value>
   </data>
   <data name="Markets_BaseId.Header" xml:space="preserve">
-    <value>Id purchased</value>
+    <value>Id к покупке</value>
   </data>
   <data name="Markets_BaseSymbol.Header" xml:space="preserve">
-    <value>Symbol purchased</value>
+    <value>Symbol к покупке</value>
   </data>
   <data name="Markets_Market.Header" xml:space="preserve">
-    <value>Market</value>
+    <value>Рынок</value>
   </data>
   <data name="Markets_PriceUsd.Header" xml:space="preserve">
-    <value>The amount of quote asset traded for one unit of base asset</value>
+    <value>Количество торгуемого актива за одну единицу покупаемого актива</value>
   </data>
   <data name="Markets_QuoteId.Header" xml:space="preserve">
-    <value>Id traded</value>
+    <value>Id к продаже</value>
   </data>
   <data name="Markets_QuoteSymbol.Header" xml:space="preserve">
-    <value>Symbol traded</value>
+    <value>Symbol к продаже</value>
   </data>
   <data name="Markets_VolumePercent.Header" xml:space="preserve">
-    <value>Percent of quote asset volume</value>
+    <value>Процент от объема торгуемого актива</value>
   </data>
   <data name="Markets_VolumeUsd24Hr.Header" xml:space="preserve">
-    <value>Volume transacted on this market in last 24 hours</value>
+    <value>Объем транзакций за последние 24 часа</value>
   </data>
   <data name="Number_records.Text" xml:space="preserve">
-    <value>Number of records to display</value>
+    <value>Количество записей для отображения</value>
   </data>
 </root>
