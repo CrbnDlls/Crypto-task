@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Networking.Vpn;
 
 namespace Crypto_task.Core.Services
 {
@@ -34,9 +35,15 @@ namespace Crypto_task.Core.Services
                     token.Value.ThrowIfCancellationRequested();
                 }
             }
-            var response = await client.GetStringAsync(url);
+           
+            var response = await client.GetAsync(url);
 
-            T result = await JsonHelper.ToObjectAsync<T>(response);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Request returned error code {response.StatusCode}.");
+            }
+
+            T result = await JsonHelper.ToObjectAsync<T>(await response.Content.ReadAsStringAsync());
 
             return result;
         }

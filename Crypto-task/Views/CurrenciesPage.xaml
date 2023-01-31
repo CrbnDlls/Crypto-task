@@ -26,7 +26,9 @@
             x:Name="dataGrid"
             ItemsSource="{x:Bind ViewModel.Source,Mode=OneWay}"
             AutoGenerateColumns="False"
-            Grid.Row="1">
+            Grid.Row="1"
+            IsDoubleTapEnabled="True"
+            DoubleTapped="dataGrid_DoubleTapped">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn 
                     Header="Rank" 
@@ -49,7 +51,7 @@
                     Header="Details">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Id}" Click="Button_Click"></Button>
+                            <Button Content="{Binding Id}" Click="Button_Click" HorizontalAlignment="Stretch"></Button>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
