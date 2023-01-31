@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crypto_task.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Crypto_task.Views
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
+        public SettingsViewModel ViewModel { get; } = new SettingsViewModel();
         public SettingsPage()
         {
             this.InitializeComponent();

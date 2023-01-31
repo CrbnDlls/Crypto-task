@@ -120,7 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\ThemeValueConverter.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="ViewModels\CurrenciesViewModel.cs" />
     <Compile Include="ViewModels\CurrencyDetailsViewModel.cs" />
     <Compile Include="ViewModels\ExchangeRatesViewModel.cs" />
@@ -225,6 +227,9 @@
       <Project>{79DC88F5-6D07-44F6-8569-7BE6F729B462}</Project>
       <Name>Crypto-task.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -8,24 +8,6 @@
     xmlns:models="using:Crypto_task.Core.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.Resources>
-        <Style x:Key="NamesStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,0,12,0"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="ValuesStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="ValueExplorerStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-
-    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -49,7 +31,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Name" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Name" Grid.Column="1" Text="Name" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Name}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -65,7 +47,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Rank" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Rank" Grid.Column="1" Text="Rank" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Rank}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -81,7 +63,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Symbol" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Symbol" Grid.Column="1" Text="Symbol" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Symbol}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -97,7 +79,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Supply" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Supply" Grid.Column="1" Text="Supply" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Supply}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -113,7 +95,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="MaxSupply" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_MaxSupply" Grid.Column="1" Text="MaxSupply" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind MaxSupply}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -129,7 +111,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="MarketCapUsd" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_MarketCapUsd" Grid.Column="1" Text="MarketCapUsd" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind MarketCapUsd}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -145,7 +127,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="VolumeUsd24Hr" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_VolumeUsd24Hr" Grid.Column="1" Text="VolumeUsd24Hr" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind VolumeUsd24Hr}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -161,7 +143,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="PriceUsd" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_PriceUsd" Grid.Column="1" Text="PriceUsd" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind PriceUsd}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -177,7 +159,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="ChangePercent24Hr" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_ChangePercent24Hr" Grid.Column="1" Text="ChangePercent24Hr" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind ChangePercent24Hr}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -193,7 +175,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Vwap24Hr" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Vwap24Hr" Grid.Column="1" Text="Vwap24Hr" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBlock  Grid.Column="1" Grid.Row="1" Text="{x:Bind Vwap24Hr}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}"/>
@@ -209,7 +191,7 @@
                             </Grid.ColumnDefinitions>
                             <SymbolIcon Grid.Column="0" Grid.RowSpan="2" Symbol="Target" Width="32"
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
-                            <TextBlock Grid.Column="1" Text="Explorer" Margin="12,6,0,0"
+                            <TextBlock x:Uid="CurrencyDetails_Explorer" Grid.Column="1" Text="Explorer" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
                             <TextBox  Grid.Column="1" Grid.Row="1" Text="{x:Bind Explorer}" Margin="12,0,0,6"
                                 Style="{ThemeResource BodyTextBlockStyle}" IsReadOnly="True"/>
@@ -227,7 +209,7 @@
                                 Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"></SymbolIcon>
                             <TextBlock Grid.Column="1" Text="{x:Bind Id}" Margin="12,6,0,0"
                                 Style="{ThemeResource BaseTextBlockStyle}"/>
-                            <Button Grid.Column="1" Grid.Row="1" Content="Markets" Name="{x:Bind Id}" 
+                            <Button x:Uid="CurrencyDetails_Markets" Grid.Column="1" Grid.Row="1" Content="Markets" Name="{x:Bind Id}" 
                                 Margin="12,0,0,6" Click="Button_Click" Width="200"/>
                         </Grid>
                     </StackPanel>

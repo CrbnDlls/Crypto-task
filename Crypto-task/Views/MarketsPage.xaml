@@ -15,7 +15,7 @@
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBlock Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Uid="Number_records" Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
             <TextBox x:Name="LimitTextBox" PlaceholderText="10" Margin="3,3,10,3" Width="50" TextChanged="LimitTextBox_TextChanged"></TextBox>
         </StackPanel>
         <controls:DataGrid
@@ -25,41 +25,49 @@
             Grid.Row="1">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_Market"
                     Header="Market" 
                     Width="SizeToHeader"
                     Binding="{Binding ExchangeId}" 
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn
+                    x:Uid="Markets_BaseId"
                     Header="BaseId" 
                     Width="SizeToCells"
                     Binding="{Binding BaseId}" 
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_QuoteId"
                     Header="QuoteId"
                     Width="SizeToCells"
                     Binding="{Binding QuoteId}"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_BaseSymbol"
                     Header="BaseSymbol"
                     Width="SizeToCells"
                     Binding="{Binding BaseSymbol}"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_QuoteSymbol"
                     Header="QuoteSymbol"
                     Width="SizeToCells"
                     Binding="{Binding QuoteSymbol}"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_VolumeUsd24Hr"
                     Header="VolumeUsd24Hr"
                     Width="SizeToCells"
                     Binding="{Binding VolumeUsd24Hr}"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn 
+                    x:Uid="Markets_PriceUsd"
                     Header="PriceUsd"
                     Width="SizeToCells"
                     Binding="{Binding PriceUsd}"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn
+                    x:Uid="Markets_VolumePercent"
                     Header="VolumePercent" 
                     Width="SizeToCells"
                     Binding="{Binding VolumePercent}" 

@@ -17,10 +17,10 @@
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <TextBox x:Name="SearchTextBox" PlaceholderText="Search Currency by Symbol or Id" Width="300" Margin="3,3,10,3" TextChanged="TextBox_TextChanged"></TextBox>
-            <TextBlock Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+            <TextBox x:Name="SearchTextBox" x:Uid="Currencies_Search" PlaceholderText="Search Currency by Symbol or Id" Width="300" Margin="3,3,10,3" TextChanged="TextBox_TextChanged"></TextBox>
+            <TextBlock x:Uid="Number_records" Text="Number of records to display" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
             <TextBox x:Name="LimitTextBox" PlaceholderText="10" Margin="3,3,10,3" Width="50" TextChanged="TextBox_TextChanged"></TextBox>
-            <TextBlock Text="Data Taken From CoinCap" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Uid="Currencies_data_source" Text="Data Taken From CoinCap" Margin="3,3,10,3" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
         <controls:DataGrid
             x:Name="dataGrid"
@@ -31,23 +31,27 @@
             DoubleTapped="dataGrid_DoubleTapped">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn 
+                    x:Uid="Currencies_Rank"
                     Header="Rank" 
                     Width="SizeToHeader"
                     Binding="{Binding Rank}" 
                     FontSize="20"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn
+                    x:Uid="Currencies_Currency"
                     Header="Currency" 
                     Width="SizeToCells"
                     Binding="{Binding Name}" 
                     FontSize="20"
                     IsReadOnly="True"/>
-                <controls:DataGridTextColumn 
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Symbol"
                     Header="Symbol"
                     Width="SizeToCells"
                     Binding="{Binding Symbol}"
                     IsReadOnly="True"/>
                 <controls:DataGridTemplateColumn
+                    x:Uid="Currencies_Details"
                     Header="Details">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -56,6 +60,7 @@
                     </controls:DataGridTemplateColumn.CellTemplate>
                 </controls:DataGridTemplateColumn>
                 <controls:DataGridTextColumn
+                    x:Uid="Currencies_market_cap_usd"
                     Header="Market Capitalization Usd" 
                     Width="SizeToCells"
                     Binding="{Binding MarketCapUsd}" 

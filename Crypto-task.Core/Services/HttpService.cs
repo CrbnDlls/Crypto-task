@@ -25,7 +25,7 @@ namespace Crypto_task.Core.Services
 
             return currencies;
         }
-        private static async Task<T> GetData<T>(HttpClient client, CancellationToken? token, string url) where T : new()
+        private static async Task<T> GetData<T>(HttpClient client, CancellationToken? token, string url)
         {
             if (token.HasValue)
             {
