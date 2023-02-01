@@ -24,9 +24,9 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
-        
-        <TextBlock Text="Theme" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"></TextBlock>
-        <TextBlock Text="Language" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1"></TextBlock>
+
+        <TextBlock x:Uid="Serttings_Theme" Text="Theme" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"></TextBlock>
+        <TextBlock x:Uid="Serttings_Language" Text="Language" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1"></TextBlock>
         <ComboBox
             Grid.Row="0" Grid.Column="1"
             VerticalAlignment="Center"

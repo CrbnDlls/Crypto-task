@@ -126,10 +126,9 @@
     <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="ViewModels\CurrenciesViewModel.cs" />
     <Compile Include="ViewModels\CurrencyDetailsViewModel.cs" />
-    <Compile Include="ViewModels\ExchangeRatesViewModel.cs" />
+    <Compile Include="ViewModels\CurrencyExchangeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MarketsViewModel.cs" />
-    <Compile Include="ViewModels\QuoteChartsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\CurrenciesPage.xaml.cs">
       <DependentUpon>CurrenciesPage.xaml</DependentUpon>
@@ -137,8 +136,8 @@
     <Compile Include="Views\CurrencyDetailsPage.xaml.cs">
       <DependentUpon>CurrencyDetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ExchangeRatesPage.xaml.cs">
-      <DependentUpon>ExchangeRatesPage.xaml</DependentUpon>
+    <Compile Include="Views\CurrencyExchange.xaml.cs">
+      <DependentUpon>CurrencyExchange.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -182,7 +181,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ExchangeRatesPage.xaml">
+    <Page Include="Views\CurrencyExchange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

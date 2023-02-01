@@ -20,8 +20,7 @@
                           IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}">
         <winui:NavigationView.MenuItems>
             <winui:NavigationViewItem x:Uid="Main_Currencies" Content="Currencies" helpers:NavHelper.NavigateTo="views:CurrenciesPage"></winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="Quote Charts" helpers:NavHelper.NavigateTo="views:QuoteChartsPage"></winui:NavigationViewItem>
-            <winui:NavigationViewItem x:Uid="Main_ExchangeCalculator" Content="Currency Exchange" helpers:NavHelper.NavigateTo="views:ExchangeRatesPage"></winui:NavigationViewItem>
+            <winui:NavigationViewItem x:Uid="Main_ExchangeCalculator" Content="Currency Exchange" helpers:NavHelper.NavigateTo="views:CurrencyExchange"></winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <ic:EventTriggerBehavior EventName="ItemInvoked">
@@ -29,11 +28,7 @@
             </ic:EventTriggerBehavior>
         </i:Interaction.Behaviors>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="206*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Frame x:Name="shellFrame" Grid.ColumnSpan="2" />
+           <Frame x:Name="shellFrame"/>
         </Grid>
     </winui:NavigationView>
 

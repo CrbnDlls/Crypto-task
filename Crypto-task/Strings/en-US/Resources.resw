@@ -126,6 +126,9 @@
   <data name="Currencies_Details.Header" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="Currencies_Id.Header" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="Currencies_market_cap_usd.Header" xml:space="preserve">
     <value>Market Capitalization Usd</value>
   </data>
@@ -206,5 +209,17 @@
   </data>
   <data name="Number_records.Text" xml:space="preserve">
     <value>Number of records to display</value>
+  </data>
+  <data name="Serttings_Language.Text" xml:space="preserve">
+    <value>Application language</value>
+  </data>
+  <data name="Serttings_Theme.Text" xml:space="preserve">
+    <value>Application theme</value>
+  </data>
+  <data name="Settings_LanguageChangedHeader" xml:space="preserve">
+    <value>Application language has been changed</value>
+  </data>
+  <data name="Settings_LanguageChangedMessage" xml:space="preserve">
+    <value>You have to restart application for setting to fully take effect</value>
   </data>
 </root>

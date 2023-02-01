@@ -26,6 +26,8 @@ namespace Crypto_task.ViewModels
 
         private AppLanguage language;
 
+        public event EventHandler LanguageChanged;
+
         public ObservableCollection<AppLanguage> Languages
         {
             get => languages;
@@ -37,8 +39,12 @@ namespace Crypto_task.ViewModels
             get => language;
             set
             {
-                SetProperty(ref language, value);
-                ApplicationLanguages.PrimaryLanguageOverride = value.Locale;
+                if (language != value)
+                {
+                    SetProperty(ref language, value);
+                    ApplicationLanguages.PrimaryLanguageOverride = value.Locale;
+                    OnLanguageChanged();
+                }
             }
         }
 
@@ -54,6 +60,10 @@ namespace Crypto_task.ViewModels
                     ThemeSelectorService.SetThemeAsync(elementTheme);
                 }
             }
+        }
+        private void OnLanguageChanged()
+        {
+            LanguageChanged?.Invoke(this, new EventArgs());
         }
 
         public SettingsViewModel()

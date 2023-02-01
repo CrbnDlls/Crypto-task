@@ -1,0 +1,109 @@
+﻿<Page
+    x:Class="Crypto_task.Views.CurrencyExchange"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Crypto_task.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <controls:DataGrid
+            x:Name="dataGridFrom"
+            ItemsSource="{x:Bind ViewModel.From,Mode=OneWay}"
+            AutoGenerateColumns="False"
+            Grid.Row="1"
+            Grid.Column="0"
+            SelectedIndex="0">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Currency"
+                    Header="Currency" 
+                    Width="SizeToCells"
+                    Binding="{Binding Name}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Symbol"
+                    Header="Symbol"
+                    Width="SizeToCells"
+                    Binding="{Binding Symbol}"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Id"
+                    Header="Id" 
+                    Width="SizeToCells"
+                    Binding="{Binding Id}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_PriceUsd"
+                    Header="PriceUsd" 
+                    Width="SizeToCells"
+                    Binding="{Binding PriceUsd}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+        <controls:DataGrid
+            x:Name="dataGridTo"
+            ItemsSource="{x:Bind ViewModel.To,Mode=OneWay}"
+            AutoGenerateColumns="False"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="7,0,0,0"
+            SelectedIndex="0">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Currency"
+                    Header="Currency" 
+                    Width="SizeToCells"
+                    Binding="{Binding Name}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+               <controls:DataGridTextColumn
+                    x:Uid="Currencies_Symbol"
+                    Header="Symbol"
+                    Width="SizeToCells"
+                    Binding="{Binding Symbol}"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_Id"
+                    Header="Id" 
+                    Width="SizeToCells"
+                    Binding="{Binding Id}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+                <controls:DataGridTextColumn
+                    x:Uid="Currencies_PriceUsd"
+                    Header="PriceUsd" 
+                    Width="SizeToCells"
+                    Binding="{Binding PriceUsd}" 
+                    FontSize="15"
+                    IsReadOnly="True"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="7,0,0,7">
+            <TextBox Header="Type Id or Symbol of currency to trade" x:Name="FromTextBox" TextChanged="FromTextBox_TextChanged"/>
+            <TextBox Header="Type the ammount" PlaceholderText="10" x:Name="AmmountTextBox" Text="{x:Bind ViewModel.Ammount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Margin="14,0,0,7">
+            <TextBox Header="Type Id or Symbol of currency to buy" x:Name="ToTextBox" Grid.Row="0" Grid.Column="1" TextChanged="ToTextBox_TextChanged"/>    
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0">
+            <TextBlock x:Name="OutputTextBlock" FontSize="25" Text="{x:Bind ViewModel.Result, Mode=OneWay}"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
