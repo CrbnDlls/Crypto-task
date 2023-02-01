@@ -25,7 +25,8 @@
             AutoGenerateColumns="False"
             Grid.Row="1"
             Grid.Column="0"
-            SelectedIndex="0">
+            SelectionMode="Single"
+            SelectionChanged="dataGrid_SelectionChanged">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn
                     x:Uid="Currencies_Currency"
@@ -48,7 +49,7 @@
                     FontSize="15"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn
-                    x:Uid="Currencies_PriceUsd"
+                    x:Uid="CurrencyExchange_PriceUsd"
                     Header="PriceUsd" 
                     Width="SizeToCells"
                     Binding="{Binding PriceUsd}" 
@@ -63,7 +64,8 @@
             Grid.Row="1"
             Grid.Column="1"
             Margin="7,0,0,0"
-            SelectedIndex="0">
+            SelectionMode="Single"
+            SelectionChanged="dataGrid_SelectionChanged">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn
                     x:Uid="Currencies_Currency"
@@ -86,7 +88,7 @@
                     FontSize="15"
                     IsReadOnly="True"/>
                 <controls:DataGridTextColumn
-                    x:Uid="Currencies_PriceUsd"
+                    x:Uid="CurrencyExchange_PriceUsd"
                     Header="PriceUsd" 
                     Width="SizeToCells"
                     Binding="{Binding PriceUsd}" 
@@ -95,11 +97,11 @@
             </controls:DataGrid.Columns>
         </controls:DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="7,0,0,7">
-            <TextBox Header="Type Id or Symbol of currency to trade" x:Name="FromTextBox" TextChanged="FromTextBox_TextChanged"/>
-            <TextBox Header="Type the ammount" PlaceholderText="10" x:Name="AmmountTextBox" Text="{x:Bind ViewModel.Ammount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15,0,0,0"/>
+            <TextBox x:Uid="CurrencyExchange_SearchTrade" Header="Type Id or Symbol of currency to trade" x:Name="FromTextBox" TextChanged="FromTextBox_TextChanged"/>
+            <TextBox x:Uid="CurrencyExchange_Amount" Header="Type the ammount" PlaceholderText="10" x:Name="AmmountTextBox" Text="{x:Bind ViewModel.Ammount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15,0,0,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Margin="14,0,0,7">
-            <TextBox Header="Type Id or Symbol of currency to buy" x:Name="ToTextBox" Grid.Row="0" Grid.Column="1" TextChanged="ToTextBox_TextChanged"/>    
+            <TextBox x:Uid="CurrencyExchange_SearchPurchase" Header="Type Id or Symbol of currency to buy" x:Name="ToTextBox" Grid.Row="0" Grid.Column="1" TextChanged="ToTextBox_TextChanged"/>    
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0">
             <TextBlock x:Name="OutputTextBlock" FontSize="25" Text="{x:Bind ViewModel.Result, Mode=OneWay}"/>

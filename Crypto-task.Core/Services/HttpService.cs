@@ -1,13 +1,8 @@
 ﻿using Crypto_task.Core.Helpers;
 using Crypto_task.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Windows.Networking.Vpn;
 
 namespace Crypto_task.Core.Services
 {
@@ -40,7 +35,7 @@ namespace Crypto_task.Core.Services
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException($"Request returned error code {response.StatusCode}.");
+                throw new HttpRequestException($"Request returned error code: {response.StatusCode}.");
             }
 
             T result = await JsonHelper.ToObjectAsync<T>(await response.Content.ReadAsStringAsync());

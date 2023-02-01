@@ -1,19 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Crypto_task.Helpers;
 using Crypto_task.Models;
 using Crypto_task.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.ServiceModel.Channels;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Windows.ApplicationModel;
 using Windows.Globalization;
-using Windows.UI;
 using Windows.UI.Xaml;
 
 namespace Crypto_task.ViewModels

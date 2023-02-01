@@ -1,17 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Crypto_task.Core.Models;
 using Crypto_task.Core.Services;
-using Crypto_task.Models;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.Globalization;
-using Windows.Web.Http;
+using Windows.ApplicationModel.Resources;
 
 namespace Crypto_task.ViewModels
 {
@@ -22,6 +16,8 @@ namespace Crypto_task.ViewModels
         public ObservableCollection<CurrencyModel> To { get; } = new ObservableCollection<CurrencyModel>();
 
         private List<CurrencyModel> currencies;
+
+        private CurrencyModel currencyFrom, currencyTo;
 
         private string result;
         
@@ -38,9 +34,8 @@ namespace Crypto_task.ViewModels
                 if (decimal.TryParse(value.Replace(',', '.'), out decimal limitNum))
                 {
                     ammount = limitNum;
-                    SetResultString();
+                    CalculateResult(currencyFrom, currencyTo);
                 }
-                
             }
         }
         
@@ -67,7 +62,6 @@ namespace Crypto_task.ViewModels
                 From.Add(currency);
                 To.Add(currency);
             }
-            SetResultString();
         }
 
         public void UpdateFromCollection(string search)
@@ -78,7 +72,6 @@ namespace Crypto_task.ViewModels
             {
                 From.Add(currency);
             }
-            SetResultString();
         }
 
         public void UpdateToCollection(string search)
@@ -89,37 +82,45 @@ namespace Crypto_task.ViewModels
             {
                 To.Add(currency);
             }
-            SetResultString();
         }
 
-        private void SetResultString()
+        private void CalculateResult(CurrencyModel from, CurrencyModel to)
         {
-            var fromCurrency = From.FirstOrDefault();
-            if (fromCurrency is null)
+            ResourceLoader rL = new ResourceLoader();
+            if (from is null)
             {
-                Result = "Traded currency is not selected";
+                Result = rL.GetString("CurrencyExchange_NoTrade");
                 return;
             }
-            if (!fromCurrency.PriceUsd.HasValue)
+            
+            if (!from.PriceUsd.HasValue)
             {
-                Result = "Traded currency has no price";
+                Result = rL.GetString("CurrencyExchange_NoTradePrice");
                 return;
             }
-            var toCurrency = To.FirstOrDefault();
-            if (string.IsNullOrEmpty(toCurrency.Id))
+            
+            if (to is null)
             {
-                Result = "Purchased currency is not selected";
+                Result = rL.GetString("CurrencyExchange_NoPurchase");
                 return;
             }
-            if (!toCurrency.PriceUsd.HasValue)
+            
+            if (!to.PriceUsd.HasValue)
             {
-                Result = "Purchased currency has no price";
+                Result = rL.GetString("CurrencyExchange_NoPurchasePrice");
                 return;
             }
 
-            decimal result = fromCurrency.PriceUsd.Value * ammount / toCurrency.PriceUsd.Value;
+            decimal result = from.PriceUsd.Value * ammount / to.PriceUsd.Value;
 
-            Result = $"{Ammount} {fromCurrency.Name} = {result} {toCurrency.Name}";
+            Result = $"{Ammount} {from.Name} = {result} {to.Name}";
+        }
+
+        public void SetResultString(object fromCurrency, object toCurrency)
+        {
+            currencyFrom = fromCurrency as CurrencyModel;
+            currencyTo = toCurrency as CurrencyModel;
+            CalculateResult(currencyFrom, currencyTo);
         }
     }
 }

@@ -177,6 +177,30 @@
   <data name="CurrencyDetails_Vwap24Hr.Text" xml:space="preserve">
     <value>Средневзвешенная цена по объему за последние 24 часа</value>
   </data>
+  <data name="CurrencyExchange_Amount.Header" xml:space="preserve">
+    <value>Кол-во к продаже</value>
+  </data>
+  <data name="CurrencyExchange_NoPurchase" xml:space="preserve">
+    <value>Валюта для покупки не выбрана</value>
+  </data>
+  <data name="CurrencyExchange_NoPurchasePrice" xml:space="preserve">
+    <value>Нет цены для покупаемой валюты</value>
+  </data>
+  <data name="CurrencyExchange_NoTrade" xml:space="preserve">
+    <value>Валюта для продажи не вабрана</value>
+  </data>
+  <data name="CurrencyExchange_NoTradePrice" xml:space="preserve">
+    <value>Нет цены для продаваемой валюты</value>
+  </data>
+  <data name="CurrencyExchange_PriceUsd.Header" xml:space="preserve">
+    <value>Цена USD</value>
+  </data>
+  <data name="CurrencyExchange_SearchPurchase.Header" xml:space="preserve">
+    <value>Поиск по Id или по Символу валюты к покупке</value>
+  </data>
+  <data name="CurrencyExchange_SearchTrade.Header" xml:space="preserve">
+    <value>Поиск по Id или по Символу валюты к продаже</value>
+  </data>
   <data name="Main_Currencies.Content" xml:space="preserve">
     <value>Валюты</value>
   </data>

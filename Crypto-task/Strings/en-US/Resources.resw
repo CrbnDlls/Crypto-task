@@ -177,6 +177,30 @@
   <data name="CurrencyDetails_Vwap24Hr.Text" xml:space="preserve">
     <value>Volume Weighted Average Price in the last 24 hours</value>
   </data>
+  <data name="CurrencyExchange_Amount.Header" xml:space="preserve">
+    <value>Type the ammount</value>
+  </data>
+  <data name="CurrencyExchange_NoPurchase" xml:space="preserve">
+    <value>Purchased currency is not selected</value>
+  </data>
+  <data name="CurrencyExchange_NoPurchasePrice" xml:space="preserve">
+    <value>Purchased currency has no price</value>
+  </data>
+  <data name="CurrencyExchange_NoTrade" xml:space="preserve">
+    <value>Traded currency is not selected</value>
+  </data>
+  <data name="CurrencyExchange_NoTradePrice" xml:space="preserve">
+    <value>Traded currency has no price</value>
+  </data>
+  <data name="CurrencyExchange_PriceUsd.Header" xml:space="preserve">
+    <value>Price USD</value>
+  </data>
+  <data name="CurrencyExchange_SearchPurchase.Header" xml:space="preserve">
+    <value>Type Id or Symbol of currency to buy</value>
+  </data>
+  <data name="CurrencyExchange_SearchTrade.Header" xml:space="preserve">
+    <value>Type Id or Symbol of currency to trade</value>
+  </data>
   <data name="Main_Currencies.Content" xml:space="preserve">
     <value>Currencies</value>
   </data>
